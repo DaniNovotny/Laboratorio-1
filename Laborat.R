@@ -78,16 +78,17 @@ c <- sample(1:100,30,TRUE)
 ej_lista <- list(a,b,c)
 
 # Mi proceso de encontrar la moda fue la siguiente: 
-sort(table(a))
-max(sort(table(a)))
-which.max(sort(table(a)))
+sort(table(a),decreasing = TRUE)
+max(sort(table(a),decreasing = TRUE))
+which.max(sort(table(a),decreasing = TRUE))
 
-a[which.max(sort(table(a)))]
+a[which.max(sort(table(a),decreasing = TRUE))]
+
 # Esta linea anterior ya me devuelve la moda de un solo vector,
 # ahora solo tengo que convertirlo en una funcion.
 
 funcion <- function(a) {
-  moda <- a[which.max(sort(table(a)))]
+  moda <- a[which.max(sort(table(a),decreasing = TRUE))]
   return(moda)
 }
 
